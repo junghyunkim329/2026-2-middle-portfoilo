@@ -41,7 +41,7 @@ export const experiences: Experience[] = [
     tags: ['Python', 'CAN', 'Machine Learning'],
     href: 'https://github.com',
     featured: true,
-    accent: 'from-[#233067] to-[#5969b4]',
+    accent: 'from-[#683c18] to-[#5969b4]',
     details: {
       problem:
         '차량 내부 네트워크는 인증 없이 메시지가 전달될 수 있어, 정상 패턴에서 벗어난 프레임을 빠르게 식별해야 합니다.',
@@ -70,7 +70,7 @@ export const experiences: Experience[] = [
     tags: ['C', 'Linux', 'Vulnerability Research'],
     href: 'https://github.com',
     featured: true,
-    accent: 'from-[#17213f] to-[#385d89]',
+    accent: 'from-[#150807] to-[#7f8696]',
     details: {
       problem:
         '공개된 취약점 분석 자료를 재현 가능한 실습 단위로 정리하고 근본 원인을 추적했습니다.',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
       '차량 도메인 컨트롤러를 대상으로 STRIDE 기반 위협 모델링 결과를 발표했습니다.',
     tags: ['ISO 21434', 'Threat Modeling'],
     featured: true,
-    accent: 'from-[#233067] to-[#8794d2]',
+    accent: 'from-[#683c18] to-[#8794d2]',
   },
   {
     slug: 'whitehat-conference-2025',
@@ -218,7 +218,7 @@ export const getProjectCount = () =>
 export const getFooterStats = () => ({ total: 1284, today: 42 })
 export const typeClass: Record<ExperienceType, string> = {
   Project:
-    'bg-[#e8edff] text-[#233067] dark:bg-[#233067]/30 dark:text-[#b9c4ff]',
+    'bg-[#e8edff] text-[#683c18] dark:bg-[#683c18]/30 dark:text-[#b9c4ff]',
   Conference:
     'bg-[#eef5f2] text-[#28634d] dark:bg-[#28634d]/30 dark:text-[#a8e5c9]',
   'Company Visit':

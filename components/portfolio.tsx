@@ -2,18 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import {
-  ArrowDownRight,
-  ArrowRight,
-  ExternalLink,
-  GitBranch,
-  Mail,
-  Menu,
-  Moon,
-  Search,
-  Sun,
-  X,
-} from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ExternalLink, GitBranch, Mail, Search } from 'lucide-react'
 import {
   experiences,
   experienceTypes,
@@ -28,154 +17,7 @@ import {
   type ExperienceType,
 } from '@/lib/portfolio-data'
 import { cn } from '@/lib/utils'
-
-export function ThemeToggle() {
-  const [dark, setDark] = useState(false)
-  function toggle() {
-    const next = !dark
-    setDark(next)
-    document.documentElement.classList.toggle('dark', next)
-  }
-  return (
-    <button
-      type="button"
-      aria-label="테마 변경"
-      onClick={toggle}
-      className="inline-flex size-9 items-center justify-center rounded-full border border-black/10 transition hover:border-[#233067]/40 dark:border-white/15"
-    >
-      <Sun className="size-4 dark:hidden" />
-      <Moon className="hidden size-4 dark:block" />
-    </button>
-  )
-}
-
-export function Header() {
-  const [open, setOpen] = useState(false)
-  return (
-    <header className="sticky top-0 z-40 border-b border-black/5 bg-background/85 backdrop-blur-xl dark:border-white/10">
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-10">
-        <Link
-          href="/"
-          className="group flex items-center gap-3"
-          onClick={() => setOpen(false)}
-        >
-          <span className="hidden text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground sm:block">
-            오늘의 기록
-          </span>
-        </Link>
-        <nav
-          aria-label="사이트 주요 메뉴"
-          className="hidden items-center gap-8 md:flex"
-        >
-          <Link
-            className="text-sm text-muted-foreground transition hover:text-foreground"
-            href="/experience"
-          >
-            Experience
-          </Link>
-          <a
-            className="text-sm text-muted-foreground transition hover:text-foreground"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            className="text-sm text-muted-foreground transition hover:text-foreground"
-            href={profile.blog}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Blog
-          </a>
-          <ThemeToggle />
-        </nav>
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <button
-            type="button"
-            className="grid size-9 place-items-center rounded-full border border-black/10 dark:border-white/15"
-            aria-label="메뉴 열기"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          </button>
-        </div>
-      </div>
-      {open && (
-        <nav
-          aria-label="모바일 메뉴"
-          className="flex flex-col gap-1 border-t border-black/5 px-5 py-4 md:hidden dark:border-white/10"
-        >
-          <Link
-            className="rounded-xl px-3 py-3 text-sm hover:bg-muted"
-            href="/experience"
-          >
-            Experience
-          </Link>
-          <a
-            className="rounded-xl px-3 py-3 text-sm hover:bg-muted"
-            href={profile.github}
-          >
-            GitHub
-          </a>
-          <a
-            className="rounded-xl px-3 py-3 text-sm hover:bg-muted"
-            href={profile.blog}
-          >
-            Blog
-          </a>
-        </nav>
-      )}
-    </header>
-  )
-}
-
-export function Footer() {
-  return (
-    <footer className="border-t border-white/10 bg-[#10152b] text-white">
-      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 lg:px-10">
-        <div className="flex flex-col justify-between gap-10 md:flex-row">
-          <div>
-            <div className="mb-5 text-2xl font-semibold tracking-[-0.06em]">
-              KJH<span className="text-[#a4b2f7]">.</span>
-            </div>
-            <p className="max-w-xs text-sm leading-7 text-white/55">
-              Security-minded, always learning.
-              <br />
-              복잡한 시스템을 더 안전하게 만드는 기록.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-x-14 gap-y-8 text-sm sm:grid-cols-2">
-            <div>
-              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
-                Explore
-              </p>
-              <div className="flex flex-col gap-3 text-white/65">
-                <Link href="/">Home</Link>
-                <Link href="/experience">Experience</Link>
-              </div>
-            </div>
-            <div>
-              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
-                Connect
-              </p>
-              <div className="flex flex-col gap-3 text-white/65">
-                <a href={profile.github}>GitHub</a>
-                <a href={profile.blog}>Blog</a>
-                <a href={`mailto:${profile.email}`}>Email</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mt-14 flex flex-col justify-between border-t border-white/10 pt-6 text-xs text-white/35 sm:flex-row">
-          <span>© 2026 김정현</span>
-        </div>
-      </div>
-    </footer>
-  )
-}
+import { Footer, Header } from '@/components/site-chrome'
 
 function Badge({
   children,
@@ -211,7 +53,7 @@ export function ExperienceCard({
           : `/project/${item.slug}`
       }
       className={cn(
-        'group block overflow-hidden rounded-3xl border border-black/8 bg-card transition duration-300 hover:-translate-y-1 hover:border-[#233067]/25 hover:shadow-[0_24px_70px_-28px_rgba(35,48,103,0.45)] dark:border-white/10',
+        'group block overflow-hidden rounded-3xl border border-black/8 bg-card transition duration-300 hover:-translate-y-1 hover:border-[#683c18]/25 hover:shadow-[0_24px_70px_-28px_rgba(35,48,103,0.45)] dark:border-white/10',
         featured && 'min-h-[330px]',
       )}
     >
@@ -279,7 +121,7 @@ export function HomePage() {
           className="mx-auto grid max-w-6xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.7fr_1.3fr] lg:px-10"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
               01 / About me
             </p>
             <h2 className="mt-5 max-w-sm text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -308,7 +150,7 @@ export function HomePage() {
               ].map((item) => (
                 <Badge
                   key={item}
-                  className="border border-[#233067]/15 bg-[#f0f2ff] text-[#233067] dark:bg-[#233067]/25 dark:text-[#c6d0ff]"
+                  className="border border-[#683c18]/15 bg-[#f0f2ff] text-[#683c18] dark:bg-[#683c18]/25 dark:text-[#c6d0ff]"
                 >
                   {item}
                 </Badge>
@@ -327,7 +169,7 @@ export function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#10152b] text-white">
+    <section className="relative overflow-hidden bg-[#150807] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_15%,rgba(129,148,255,0.35),transparent_28%),radial-gradient(circle_at_5%_95%,rgba(35,48,103,0.6),transparent_38%)]" />
       <div
         className="absolute inset-0 opacity-20"
@@ -345,7 +187,7 @@ function Hero() {
           <h1 className="max-w-4xl whitespace-pre-line text-5xl font-semibold leading-[0.98] tracking-[-0.065em] sm:text-7xl lg:text-[clamp(4rem,7vw,7.25rem)]">
             차량 보안의 경계를
             <br />
-            <span className="bg-gradient-to-r from-[#b9c4ff] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#a4a8a4] to-white bg-clip-text text-transparent">
               더 단단하게
             </span>
             <br />
@@ -361,7 +203,7 @@ function Hero() {
               href={profile.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#10152b] transition hover:bg-[#dfe4ff]"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#150807] transition hover:bg-[#dfe4ff]"
             >
               GitHub <ExternalLink className="size-4" />
             </a>
@@ -415,7 +257,7 @@ function Skills() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
               02 / Skills
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -431,7 +273,7 @@ function Skills() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-black/8 bg-black/8 sm:grid-cols-2 lg:grid-cols-4 dark:border-white/10 dark:bg-white/10">
           {Object.entries(skills).map(([group, items], index) => (
             <div key={group} className="bg-card p-6 sm:p-7">
-              <span className="text-xs font-semibold text-[#233067] dark:text-[#b9c4ff]">
+              <span className="text-xs font-semibold text-[#683c18] dark:text-[#a4a8a4]">
                 0{index + 1}
               </span>
               <h3 className="mt-7 text-lg font-semibold">{group}</h3>
@@ -457,7 +299,7 @@ function Featured() {
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32 lg:px-10">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
               03 / Selected work
             </p>
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -466,7 +308,7 @@ function Featured() {
           </div>
           <Link
             href="/experience"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#233067] dark:text-[#b9c4ff]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#683c18] dark:text-[#a4a8a4]"
           >
             모든 경험 보기 <ArrowRight className="size-4" />
           </Link>
@@ -487,10 +329,10 @@ function Contact() {
       id="contact"
       className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32 lg:px-10"
     >
-      <div className="relative overflow-hidden rounded-[2rem] bg-[#233067] px-7 py-12 text-white sm:px-12 sm:py-16">
+      <div className="relative overflow-hidden rounded-[2rem] bg-[#683c18] px-7 py-12 text-white sm:px-12 sm:py-16">
         <div className="absolute -right-20 -top-24 size-72 rounded-full border-[40px] border-white/10" />
         <div className="relative max-w-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b9c4ff]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a4a8a4]">
             Let&apos;s connect
           </p>
           <h2 className="mt-5 whitespace-pre-line text-4xl font-semibold leading-[1.05] tracking-[-0.055em] sm:text-5xl">
@@ -503,7 +345,7 @@ function Contact() {
           </p>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#233067] transition hover:bg-[#e6eaff]"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#683c18] transition hover:bg-[#e6eaff]"
           >
             연락하기 <Mail className="size-4" />
           </a>
@@ -522,7 +364,7 @@ export function ExperiencePage() {
         className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10"
       >
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
             Experience / 2022 — present
           </p>
           <h1 className="mt-5 text-5xl font-semibold tracking-[-0.065em] sm:text-7xl">
@@ -558,7 +400,7 @@ function ExperienceBrowser() {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="제목, 태그, 기술 스택 검색"
-            className="h-12 w-full rounded-xl border border-black/8 bg-background pl-11 pr-4 text-sm outline-none ring-[#233067] transition placeholder:text-muted-foreground focus:ring-2 dark:border-white/10"
+            className="h-12 w-full rounded-xl border border-black/8 bg-background pl-11 pr-4 text-sm outline-none ring-[#683c18] transition placeholder:text-muted-foreground focus:ring-2 dark:border-white/10"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -570,8 +412,8 @@ function ExperienceBrowser() {
               className={cn(
                 'rounded-full border px-3 py-2 text-xs transition',
                 type === item
-                  ? 'border-[#233067] bg-[#233067] text-white'
-                  : 'border-black/8 text-muted-foreground hover:border-[#233067]/40 dark:border-white/10',
+                  ? 'border-[#683c18] bg-[#683c18] text-white'
+                  : 'border-black/8 text-muted-foreground hover:border-[#683c18]/40 dark:border-white/10',
               )}
             >
               {item === 'All' ? '전체' : formatType(item)}
@@ -651,7 +493,7 @@ export function ProjectPage({ item }: { item: Experience }) {
         </Link>
         <div className="mt-14 grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <aside>
-            <span className="inline-flex rounded-full bg-[#e8edff] px-3 py-1 text-xs font-medium text-[#233067] dark:bg-[#233067]/30 dark:text-[#b9c4ff]">
+            <span className="inline-flex rounded-full bg-[#e8edff] px-3 py-1 text-xs font-medium text-[#683c18] dark:bg-[#683c18]/30 dark:text-[#a4a8a4]">
               {formatType(item.type)}
             </span>
             <h1 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-[-0.065em] sm:text-6xl">
@@ -672,7 +514,7 @@ export function ProjectPage({ item }: { item: Experience }) {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[#233067] dark:text-[#b9c4ff]"
+                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[#683c18] dark:text-[#a4a8a4]"
               >
                 View repository <GitBranch className="size-4" />
               </a>
@@ -757,14 +599,14 @@ function DetailBlock({
     <section
       className={cn(
         'border-t pt-6',
-        accent ? 'border-[#233067]/30' : 'border-black/10 dark:border-white/10',
+        accent ? 'border-[#683c18]/30' : 'border-black/10 dark:border-white/10',
       )}
     >
       <h2
         className={cn(
           'text-xs font-semibold uppercase tracking-[0.18em]',
           accent
-            ? 'text-[#233067] dark:text-[#b9c4ff]'
+            ? 'text-[#683c18] dark:text-[#a4a8a4]'
             : 'text-muted-foreground',
         )}
       >
@@ -783,7 +625,7 @@ export function AdminPage() {
       <Header />
       <main className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
             Protected route / Admin
           </p>
           <h1 className="mt-5 text-5xl font-semibold tracking-[-0.065em] sm:text-7xl">
@@ -824,7 +666,7 @@ export function AdminPage() {
         </div>
         <div className="mt-8 rounded-3xl border border-dashed p-7">
           <div className="flex items-start gap-4">
-            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-[#e8edff] text-[#233067] dark:bg-[#233067]/30 dark:text-[#b9c4ff]">
+            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-[#e8edff] text-[#683c18] dark:bg-[#683c18]/30 dark:text-[#a4a8a4]">
               <GitBranch className="size-4" />
             </div>
             <div>
@@ -848,7 +690,7 @@ export function NotFoundPage() {
     <>
       <Header />
       <main className="mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-5 py-20 sm:px-8 lg:px-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#233067] dark:text-[#b9c4ff]">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
           404 / Not found
         </p>
         <h1 className="mt-6 text-6xl font-semibold tracking-[-0.07em] sm:text-8xl">
@@ -860,7 +702,7 @@ export function NotFoundPage() {
         </p>
         <Link
           href="/"
-          className="mt-9 inline-flex w-fit items-center gap-2 rounded-full bg-[#233067] px-5 py-3 text-sm font-medium text-white"
+          className="mt-9 inline-flex w-fit items-center gap-2 rounded-full bg-[#683c18] px-5 py-3 text-sm font-medium text-white"
         >
           홈으로 돌아가기 <ArrowRight className="size-4" />
         </Link>

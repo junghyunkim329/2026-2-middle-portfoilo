@@ -53,7 +53,7 @@ export function ExperienceCard({
           : `/project/${item.slug}`
       }
       className={cn(
-        'group block overflow-hidden rounded-3xl border border-black/8 bg-card transition duration-300 hover:-translate-y-1 hover:border-[#683c18]/25 hover:shadow-[0_24px_70px_-28px_rgba(35,48,103,0.45)] dark:border-white/10',
+        'group block overflow-hidden rounded-3xl border border-black/8 bg-card transition duration-300 hover:-translate-y-1 hover:border-[#382a10]/25 hover:shadow-[0_24px_70px_-28px_rgba(35,48,103,0.45)] dark:border-white/10',
         featured && 'min-h-[330px]',
       )}
     >
@@ -121,7 +121,7 @@ export function HomePage() {
           className="mx-auto grid max-w-6xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.7fr_1.3fr] lg:px-10"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
               01 / About me
             </p>
             <h2 className="mt-5 max-w-sm text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -150,7 +150,7 @@ export function HomePage() {
               ].map((item) => (
                 <Badge
                   key={item}
-                  className="border border-[#683c18]/15 bg-[#f0f2ff] text-[#683c18] dark:bg-[#683c18]/25 dark:text-[#c6d0ff]"
+                  className="border border-[#382a10]/15 bg-[#f0f2ff] text-[#382a10] dark:bg-[#382a10]/25 dark:text-[#c6d0ff]"
                 >
                   {item}
                 </Badge>
@@ -169,7 +169,7 @@ export function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#150807] text-white">
+    <section className="relative overflow-hidden bg-[#382a10] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_15%,rgba(129,148,255,0.35),transparent_28%),radial-gradient(circle_at_5%_95%,rgba(35,48,103,0.6),transparent_38%)]" />
       <div
         className="absolute inset-0 opacity-20"
@@ -187,7 +187,7 @@ function Hero() {
           <h1 className="max-w-4xl whitespace-pre-line text-5xl font-semibold leading-[0.98] tracking-[-0.065em] sm:text-7xl lg:text-[clamp(4rem,7vw,7.25rem)]">
             차량 보안의 경계를
             <br />
-            <span className="bg-gradient-to-r from-[#a4a8a4] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#eae0d7] to-white bg-clip-text text-transparent">
               더 단단하게
             </span>
             <br />
@@ -203,7 +203,7 @@ function Hero() {
               href={profile.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#150807] transition hover:bg-[#dfe4ff]"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#382a10] transition hover:bg-[#dfe4ff]"
             >
               GitHub <ExternalLink className="size-4" />
             </a>
@@ -252,12 +252,12 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="border-y border-black/5 bg-[#f7f8fb] dark:border-white/10 dark:bg-white/[0.03]"
+      className="border-y border-black/5 bg-[#eae0d7] dark:border-white/10 dark:bg-white/[0.03]"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
               02 / Skills
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -273,7 +273,7 @@ function Skills() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-black/8 bg-black/8 sm:grid-cols-2 lg:grid-cols-4 dark:border-white/10 dark:bg-white/10">
           {Object.entries(skills).map(([group, items], index) => (
             <div key={group} className="bg-card p-6 sm:p-7">
-              <span className="text-xs font-semibold text-[#683c18] dark:text-[#a4a8a4]">
+              <span className="text-xs font-semibold text-[#382a10] dark:text-[#eae0d7]">
                 0{index + 1}
               </span>
               <h3 className="mt-7 text-lg font-semibold">{group}</h3>
@@ -299,7 +299,7 @@ function Featured() {
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32 lg:px-10">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
               03 / Selected work
             </p>
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
@@ -308,7 +308,7 @@ function Featured() {
           </div>
           <Link
             href="/experience"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#683c18] dark:text-[#a4a8a4]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#382a10] dark:text-[#eae0d7]"
           >
             모든 경험 보기 <ArrowRight className="size-4" />
           </Link>
@@ -329,10 +329,10 @@ function Contact() {
       id="contact"
       className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32 lg:px-10"
     >
-      <div className="relative overflow-hidden rounded-[2rem] bg-[#683c18] px-7 py-12 text-white sm:px-12 sm:py-16">
+      <div className="relative overflow-hidden rounded-[2rem] bg-[#382a10] px-7 py-12 text-white sm:px-12 sm:py-16">
         <div className="absolute -right-20 -top-24 size-72 rounded-full border-[40px] border-white/10" />
         <div className="relative max-w-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a4a8a4]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#eae0d7]">
             Let&apos;s connect
           </p>
           <h2 className="mt-5 whitespace-pre-line text-4xl font-semibold leading-[1.05] tracking-[-0.055em] sm:text-5xl">
@@ -345,7 +345,7 @@ function Contact() {
           </p>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#683c18] transition hover:bg-[#e6eaff]"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#382a10] transition hover:bg-[#e6eaff]"
           >
             연락하기 <Mail className="size-4" />
           </a>
@@ -364,7 +364,7 @@ export function ExperiencePage() {
         className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10"
       >
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
             Experience / 2022 — present
           </p>
           <h1 className="mt-5 text-5xl font-semibold tracking-[-0.065em] sm:text-7xl">
@@ -400,7 +400,7 @@ function ExperienceBrowser() {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="제목, 태그, 기술 스택 검색"
-            className="h-12 w-full rounded-xl border border-black/8 bg-background pl-11 pr-4 text-sm outline-none ring-[#683c18] transition placeholder:text-muted-foreground focus:ring-2 dark:border-white/10"
+            className="h-12 w-full rounded-xl border border-black/8 bg-background pl-11 pr-4 text-sm outline-none ring-[#382a10] transition placeholder:text-muted-foreground focus:ring-2 dark:border-white/10"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -412,8 +412,8 @@ function ExperienceBrowser() {
               className={cn(
                 'rounded-full border px-3 py-2 text-xs transition',
                 type === item
-                  ? 'border-[#683c18] bg-[#683c18] text-white'
-                  : 'border-black/8 text-muted-foreground hover:border-[#683c18]/40 dark:border-white/10',
+                  ? 'border-[#382a10] bg-[#382a10] text-white'
+                  : 'border-black/8 text-muted-foreground hover:border-[#382a10]/40 dark:border-white/10',
               )}
             >
               {item === 'All' ? '전체' : formatType(item)}
@@ -493,7 +493,7 @@ export function ProjectPage({ item }: { item: Experience }) {
         </Link>
         <div className="mt-14 grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <aside>
-            <span className="inline-flex rounded-full bg-[#e8edff] px-3 py-1 text-xs font-medium text-[#683c18] dark:bg-[#683c18]/30 dark:text-[#a4a8a4]">
+            <span className="inline-flex rounded-full bg-[#e8edff] px-3 py-1 text-xs font-medium text-[#382a10] dark:bg-[#382a10]/30 dark:text-[#eae0d7]">
               {formatType(item.type)}
             </span>
             <h1 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-[-0.065em] sm:text-6xl">
@@ -514,7 +514,7 @@ export function ProjectPage({ item }: { item: Experience }) {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[#683c18] dark:text-[#a4a8a4]"
+                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[#382a10] dark:text-[#eae0d7]"
               >
                 View repository <GitBranch className="size-4" />
               </a>
@@ -599,14 +599,14 @@ function DetailBlock({
     <section
       className={cn(
         'border-t pt-6',
-        accent ? 'border-[#683c18]/30' : 'border-black/10 dark:border-white/10',
+        accent ? 'border-[#382a10]/30' : 'border-black/10 dark:border-white/10',
       )}
     >
       <h2
         className={cn(
           'text-xs font-semibold uppercase tracking-[0.18em]',
           accent
-            ? 'text-[#683c18] dark:text-[#a4a8a4]'
+            ? 'text-[#382a10] dark:text-[#eae0d7]'
             : 'text-muted-foreground',
         )}
       >
@@ -625,7 +625,7 @@ export function AdminPage() {
       <Header />
       <main className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
             Protected route / Admin
           </p>
           <h1 className="mt-5 text-5xl font-semibold tracking-[-0.065em] sm:text-7xl">
@@ -666,7 +666,7 @@ export function AdminPage() {
         </div>
         <div className="mt-8 rounded-3xl border border-dashed p-7">
           <div className="flex items-start gap-4">
-            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-[#e8edff] text-[#683c18] dark:bg-[#683c18]/30 dark:text-[#a4a8a4]">
+            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-[#e8edff] text-[#382a10] dark:bg-[#382a10]/30 dark:text-[#eae0d7]">
               <GitBranch className="size-4" />
             </div>
             <div>
@@ -690,7 +690,7 @@ export function NotFoundPage() {
     <>
       <Header />
       <main className="mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-5 py-20 sm:px-8 lg:px-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#683c18] dark:text-[#a4a8a4]">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#382a10] dark:text-[#eae0d7]">
           404 / Not found
         </p>
         <h1 className="mt-6 text-6xl font-semibold tracking-[-0.07em] sm:text-8xl">
@@ -702,7 +702,7 @@ export function NotFoundPage() {
         </p>
         <Link
           href="/"
-          className="mt-9 inline-flex w-fit items-center gap-2 rounded-full bg-[#683c18] px-5 py-3 text-sm font-medium text-white"
+          className="mt-9 inline-flex w-fit items-center gap-2 rounded-full bg-[#382a10] px-5 py-3 text-sm font-medium text-white"
         >
           홈으로 돌아가기 <ArrowRight className="size-4" />
         </Link>

@@ -13,7 +13,7 @@ export function ThemeToggle() {
     document.documentElement.classList.toggle('dark', next)
   }
   return (
-    <button type="button" aria-label="테마 변경" onClick={toggle} className="inline-flex size-9 items-center justify-center rounded-full border border-black/10 transition hover:border-[#683c18]/40 dark:border-white/15">
+    <button type="button" aria-label="테마 변경" onClick={toggle} className="inline-flex size-9 items-center justify-center rounded-full border border-black/10 transition hover:border-[#382a10]/40 dark:border-white/15">
       <Sun className="size-4 dark:hidden" />
       <Moon className="hidden size-4 dark:block" />
     </button>
@@ -54,11 +54,11 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#150807] text-white">
+    <footer className="border-t border-white/10 bg-[#382a10] text-white">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div>
-            <div className="mb-5 text-2xl font-semibold tracking-[-0.06em]">KJH<span className="text-[#a4a8a4]">.</span></div>
+            <div className="mb-5 text-2xl font-semibold tracking-[-0.06em]">KJH<span className="text-[#eae0d7]">.</span></div>
             <p className="max-w-xs text-sm leading-7 text-white/55">Security-minded, always learning.<br />복잡한 시스템을 더 안전하게 만드는 기록.</p>
           </div>
           <div className="grid grid-cols-2 gap-x-14 gap-y-8 text-sm sm:grid-cols-2">
